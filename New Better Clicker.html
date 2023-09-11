@@ -1,0 +1,33 @@
+<html onclick='moneya()' id='yay'>
+<script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
+<script>
+const text = document.getElementById('yay')
+var a = '400'//prompt('exponent','400')
+var b = Math.floor(Math.random()*9)+1
+if (localStorage.save==null){
+var savedata= {
+a1:{value:new Decimal(0), id:'money'},
+a2: {value:new Decimal(1), id:'cpc'},
+a3:{value:new Decimal(0), id:'mps'}
+};
+}else{
+var savedata = JSON.parse(atob(localStorage.save))
+}
+var money = new Decimal(savedata.a1.value)
+var cpc = new Decimal(savedata.a2.value)
+var mps = new Decimal(savedata.a3.value)
+function savestuff(){
+savedata = {
+a1:{value:money, id:'money'},
+a2: {value:cpc, id:'cpc'},
+a3:{value:mps, id:'mps'}
+};
+localStorage.setItem('save',btoa(JSON.stringify(savedata)))
+}
+setInterval(savestuff,10)
+function moneya(){
+money= new Decimal(money.add(cpc))
+text.innerText=money
+}
+</script>
+</html>
