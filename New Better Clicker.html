@@ -1,4 +1,5 @@
-<html onclick='moneya()' id='yay'>
+<html onclick='moneya()'>
+<div  id='yay'></div>
 <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
 <script>
 const text = document.getElementById('yay')
@@ -35,5 +36,19 @@ money=money.add(mps)
 text.innerText=money
 }
 setInterval(moneyps,1000)
+function buymps(){
+if (money>=new Decimal(100)){
+money = money.subtract(100)
+mps=mps.add(1)
+}
+}
+function buycpc(){
+if (money>=new Decimal(30)){
+money = money.subtract(30)
+cpc=cpc.add(1)
+}
+}
 </script>
+<button onclick='buycpc()'>cpc+1</button>
+<button onclick='buymps()'>mps+1</button>
 </html>
