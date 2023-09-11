@@ -24,10 +24,16 @@ a3:{value:mps, id:'mps'}
 };
 localStorage.setItem('save',btoa(JSON.stringify(savedata)))
 }
+text.innerText=money
 setInterval(savestuff,10)
 function moneya(){
 money= new Decimal(money.add(cpc))
 text.innerText=money
 }
+function moneyps(){
+money=money.add(mps)
+text.innerText=money
+}
+setInterval(moneyps,1000)
 </script>
 </html>
