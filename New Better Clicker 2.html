@@ -1,4 +1,11 @@
 <html onclick='moneya()'>
+<style>
+h1{
+font-size:15px;
+}div{
+font-size:15px;
+}
+</style>
 <div  id='yay'></div>
 <button onclick='buycpc()'>cpc+1</button>
 <button onclick='buymps()'>mps+1</button>
@@ -29,7 +36,7 @@ a3:{value:mps, id:'mps'}
 };
 cutext.innerText=mps+" MPS \n"+cpc+" CPC"
 localStorage.setItem('savefile',btoa(JSON.stringify(savedata)))
-utext.innerText=atob(localStorage.savefile)
+utext.innerText="\n\n\n\n\n"+atob(localStorage.savefile)
 }
 text.innerText=money
 setInterval(savestuff,10)
