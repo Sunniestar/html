@@ -1,0 +1,102 @@
+<html onclick='moneya()'>
+<style>
+h1{
+font-size:15px;
+}div{
+font-size:15px;
+}
+</style>
+<div  id='yay'></div>
+<button onclick=buycpc(G)>cpc</button>
+<button onclick=buymps(G)>mps</button>
+<button id="bttn" onclick='buytimes()'>buy 1x</button>
+<div id="current">yay</div>
+<script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
+<h1 id="savefiledata">...</h1>
+<button onclick="DecryptSave()">dont press cheater</button>
+<script>
+const text = document.getElementById('yay')
+const utext = document.getElementById('savefiledata')
+const cutext = document.getElementById('current')
+const bttn = document.getElementById('bttn')
+var max = new Decimal('1e8999999999999999')
+var min= new Decimal('1e-8999999999999999') 
+if (localStorage.savefilet==null){
+var savedata= {
+a1:{value:new Decimal(0), id:'money'},
+a2: {value:new Decimal(1), id:'cpc'},
+a3:{value:new Decimal(0), id:'mps'},
+a4:{value:new Decimal(1)}
+};
+}else{
+var savedata = JSON.parse(atob(localStorage.savefilet))
+}
+var money = new Decimal(savedata.a1.value)
+var cpc = new Decimal(savedata.a2.value)
+var mps = new Decimal(savedata.a3.value)
+var G = new Decimal(savedata.a3.value)
+function savestuff(){
+savedata = {
+a1:{value:money, id:'money'},
+a2: {value:cpc, id:'cpc'},
+a3:{value:mps, id:'mps'}
+};
+bttn.innerText=G+"x"
+cutext.innerText=mps+" MPS \n"+cpc+" CPC"
+localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
+utext.innerText="\n\n\n\n\n"+atob(localStorage.savefilet)
+}
+text.innerText=money
+setInterval(savestuff,10)
+function moneya(){
+money= new Decimal(money.add(cpc))
+text.innerText=money
+}
+function moneyps(){
+money=money.add(mps)
+text.innerText=money
+}
+setInterval(moneyps,1000)
+function buymps(G){
+if (money>=(100*G)){
+money = new Decimal(money.subtract(100*G))
+mps=new Decimal(mps.add(1*G))
+}}
+function buytimes(){
+if (G==1){ 
+G=5
+}else if (G==5){ 
+G=10
+}else if (G==10){ 
+G=50
+}else if (G==50){ 
+G=100
+}else if (G==100){ 
+G=1
+}
+}
+function buycpc(G){
+if (money>=(30*G)){
+money = new Decimal(money.subtract(30*G))
+cpc=new Decimal(cpc.add(1*G))
+}
+}
+function DecryptSave(){
+console.error(' '+new Decimal('1e'+Math.floor(Math.random()*100)))
+console.warn(' '+new Decimal('1e'+Math.floor(Math.random()*100)))
+console.warn('lol have fun')
+ savedata= {
+a1:{value:new Decimal(0), id:'money'},
+a2: {value:new Decimal(1), id:'cpc'},
+a3:{value:new Decimal(0), id:'mps'},
+a4:{value:new Decimal(1)}
+};
+ money = new Decimal(savedata.a1.value)
+ cpc = new Decimal(savedata.a2.value)
+ mps = new Decimal(savedata.a3.value)
+G = new Decimal(savedata.a3.value)
+//alert(atob(localStorage.savefilet)+" \n your welcome cheaters")
+//console.log(atob(localStorage.savefilet)+" \n your welcome cheaters")
+}
+</script>
+</html>
