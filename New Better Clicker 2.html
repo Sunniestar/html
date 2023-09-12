@@ -1,0 +1,62 @@
+<html onclick='moneya()'>
+<div  id='yay'></div>
+<button onclick='buycpc()'>cpc+1</button>
+<button onclick='buymps()'>mps+1</button>
+<div id="current">yay</div>
+<script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
+<h1 id="savefiledata">...</h1>
+<script>
+const text = document.getElementById('yay')
+const utext = document.getElementById('savefiledata')
+const cutext = document.getElementById('current')
+if (localStorage.savefile==null){
+var savedata= {
+a1:{value:new Decimal(0), id:'money'},
+a2: {value:new Decimal(1), id:'cpc'},
+a3:{value:new Decimal(0), id:'mps'}
+};
+}else{
+var savedata = JSON.parse(atob(localStorage.savefile))
+}
+var money = new Decimal(savedata.a1.value)
+var cpc = new Decimal(savedata.a2.value)
+var mps = new Decimal(savedata.a3.value)
+function savestuff(){
+savedata = {
+a1:{value:money, id:'money'},
+a2: {value:cpc, id:'cpc'},
+a3:{value:mps, id:'mps'}
+};
+cutext.innerText=mps+" MPS \n"+cpc+" CPC"
+localStorage.setItem('savefile',btoa(JSON.stringify(savedata)))
+utext.innerText=atob(localStorage.savefile)
+}
+text.innerText=money
+setInterval(savestuff,10)
+function moneya(){
+money= new Decimal(money.add(cpc))
+text.innerText=money
+}
+function moneyps(){
+money=money.add(mps)
+text.innerText=money
+}
+setInterval(moneyps,1000)
+function buymps(){
+if (money>=(100)){
+money = money.subtract(100)
+mps=mps.add(1)
+}
+}
+function buycpc(){
+if (money>=(30)){
+money = money.subtract(30)
+cpc=cpc.add(1)
+}
+}
+function DecryptSave(){
+alert(atob(localStorage.savefile)+" \n your welcome cheaters")
+console.log(atob(localStorage.savefile)+" \n your welcome cheaters")
+}
+</script>
+</html>
