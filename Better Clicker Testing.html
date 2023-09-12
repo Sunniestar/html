@@ -21,6 +21,7 @@ const cutext = document.getElementById('current')
 const bttn = document.getElementById('bttn')
 var max = new Decimal('1e8999999999999999')
 var min= new Decimal('1e-8999999999999999') 
+var warn=0
 if (localStorage.savefilet==null){
 var savedata= {
 a1:{value:new Decimal(0), id:'money'},
@@ -82,9 +83,14 @@ cpc=new Decimal(cpc.add(1*G))
 }
 }
 function DecryptSave(){
-console.error(' '+new Decimal('1e'+Math.floor(Math.random()*100)))
-console.warn(' '+new Decimal('1e'+Math.floor(Math.random()*100)))
-console.warn('lol have fun')
+if (warn==0){
+console.warn('dont press again')
+alert('data will be reset on press again')
+warn=1
+}
+else if (warn==1){
+console.error('data deleted')
+alert('deleting data')
  savedata= {
 a1:{value:new Decimal(0), id:'money'},
 a2: {value:new Decimal(1), id:'cpc'},
@@ -94,9 +100,9 @@ a4:{value:new Decimal(1)}
  money = new Decimal(savedata.a1.value)
  cpc = new Decimal(savedata.a2.value)
  mps = new Decimal(savedata.a3.value)
-G = new Decimal(savedata.a3.value)
-//alert(atob(localStorage.savefilet)+" \n your welcome cheaters")
-//console.log(atob(localStorage.savefilet)+" \n your welcome cheaters")
+G = new Decimal(savedata.a4.value)
+warn=0
+}
 }
 </script>
 </html>
