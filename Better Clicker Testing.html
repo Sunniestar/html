@@ -15,6 +15,7 @@ font-size:15px;
 <h1 id="savefiledata">...</h1>
 <button onclick="DecryptSave()">dont press cheater</button>
 <script>
+document.onload
 const text = document.getElementById('yay')
 const utext = document.getElementById('savefiledata')
 const cutext = document.getElementById('current')
@@ -66,15 +67,15 @@ mps=new Decimal(mps.add(1*G))
 }}
 function buytimes(){
 if (G==1){ 
-G=5
+G=new Decimal(5)
 }else if (G==5){ 
-G=10
+G=new Decimal(10)
 }else if (G==10){ 
-G=50
+G=new Decimal(50)
 }else if (G==50){ 
-G=100
+G=new Decimal(100)
 }else if (G==100){ 
-G=1
+G=new Decimal(1)
 }
 }
 function buycpc(G){
