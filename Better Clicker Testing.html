@@ -10,6 +10,7 @@ font-size:15px;
 <button onclick=buycpc(G)>cpc</button>
 <button onclick=buymps(G)>mps</button>
 <button onclick=buyrebirth(G)>rebirth</button>
+<button onclick=faster()>faster cooldown</button>
 <button id="bttn" onclick='buytimes()'>buy 1x</button>
 <div id="current">yay</div>
 <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
@@ -30,7 +31,8 @@ a2: {value:new Decimal(1), id:'cpc'},
 a3:{value:new Decimal(0), id:'mps'},
 a4:{value:new Decimal(1)},
 a5:{value:new Decimal(0)},
-a6:{value:new Decimal(0)}
+a6:{value:new Decimal(0)},
+a7:{value:new Decimal(1000)}
 };
 }else{
 var savedata = JSON.parse(atob(localStorage.savefilet))
@@ -41,6 +43,7 @@ var mps = new Decimal(savedata.a3.value)
 var G = new Decimal(savedata.a4.value)
 var rebirth = new Decimal(savedata.a5.value)
 var gems = new Decimal(savedata.a6.value)
+var time = new Decimal(savedata.a7.value)
 function savestuff(){
 savedata = {
 a1:{value:money, id:'money'},
@@ -48,7 +51,8 @@ a2: {value:cpc, id:'cpc'},
 a3:{value:mps, id:'mps'},
 a4:{value:G, id:'buymulti'},
 a5:{value:rebirth, id:'rebirths'},
-a6:{value:gems, id:'gems'}
+a6:{value:gems, id:'gems'},
+a7:{value:time, id:'time'}
 };
 bttn.innerText=G+"x"
 cutext.innerText=mps+" MPS \n"+cpc+" CPC"
@@ -64,8 +68,9 @@ text.innerText=money
 function moneyps(){
 money=money.add(mps)
 text.innerText=money
+setTimeout(moneyps,time)
 }
-setInterval(moneyps,1000)
+setTimeout(moneyps,time)
 function buymps(G){
 if (money>=(100*G)){
 money = new Decimal(money.subtract(100*G))
@@ -98,6 +103,12 @@ money = new Decimal(money.subtract(30*G))
 cpc=rebirth.add(1).multiply(G).add(cpc)
 }
 }
+function faster(){
+if (gems>=1&&time>=20){
+gems = gems.subtract(1)
+time=time.subtract(10)
+}
+}
 function DecryptSave(){
 if (warn==0){
 console.warn('dont press again')
@@ -113,7 +124,8 @@ a2: {value:new Decimal(1), id:'cpc'},
 a3:{value:new Decimal(0), id:'mps'},
 a4:{value:new Decimal(1)},
 a5:{value:new Decimal(0)},
-a6:{value:new Decimal(0)}
+a6:{value:new Decimal(0)},
+a7:{value:new Decimal(1000)}
 };
  money = new Decimal(savedata.a1.value)
  cpc = new Decimal(savedata.a2.value)
@@ -121,6 +133,7 @@ a6:{value:new Decimal(0)}
 G = new Decimal(savedata.a4.value)
 rebirth = new Decimal(savedata.a5.value)
 gems = new Decimal(savedata.a6.value)
+time = new Decimal(savedata.a7.value)
 warn=0
 }
 }
