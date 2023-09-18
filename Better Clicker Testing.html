@@ -35,12 +35,13 @@ var savedata = JSON.parse(atob(localStorage.savefilet))
 var money = new Decimal(savedata.a1.value)
 var cpc = new Decimal(savedata.a2.value)
 var mps = new Decimal(savedata.a3.value)
-var G = new Decimal(savedata.a3.value)
+var G = new Decimal(savedata.a4.value)
 function savestuff(){
 savedata = {
 a1:{value:money, id:'money'},
 a2: {value:cpc, id:'cpc'},
-a3:{value:mps, id:'mps'}
+a3:{value:mps, id:'mps'},
+a4:{value:G, id:'buymulti'}
 };
 bttn.innerText=G+"x"
 cutext.innerText=mps+" MPS \n"+cpc+" CPC"
