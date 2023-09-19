@@ -61,7 +61,7 @@ a7:{value:time, id:'time'},
 a8:{value:new Date().getTime()}
 };
 bttn.innerText=G+"x"
-cutext.innerText=mps+" MPS \n"+cpc+" CPC "+rebirth+" rebirths "+gems+" gems"
+cutext.innerText=mps+" MPS \n"+cpc+" CPC \n"+rebirth+" rebirths\n"+gems+" gems"
 localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 //utext.innerText="\n\n\n\n\n"+atob(localStorage.savefilet)
 }
@@ -115,10 +115,12 @@ money = new Decimal(money.subtract(30*G))
 cpc=rebirth.add(1).multiply(G).add(cpc)
 }
 }
-function faster(){
-if (gems>=1&&time>=20){
+function faster(G){
+ for (let i = 0; i < G; i++) {
+if (gems>=1&&time>=6){
 gems = gems.subtract(1)
-time=time.subtract(10)
+time=time.subtract(5)
+}
 }
 }
 function DecryptSave(){
