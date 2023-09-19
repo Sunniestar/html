@@ -3350,19 +3350,22 @@ setTimeout(moneyps,time)
 setTimeout(moneyps,time)
 function buymps(G){
 if (money>=(G.multiply(100))){
-money = new Decimal(money.subtract(100*G))
+money = new Decimal(money.subtract(G.multiply(100)))
 mps=rebirth.add(1).multiply(G).add(mps)
 }}
 function buyrebirth(G){
 if (money>=(G.multiply(1000))){
-rebirth=new Decimal(rebirth.add(1*G))
+rebirth=new Decimal(rebirth.add(G.add(1)))
 money = new Decimal(0)
 mps= new Decimal(0)
 cpc= rebirth.add(1)
 gems=gems.add(G)
 }}
 function buytimes(){
-if (G==1){ 
+if(custom==null){
+  custom=G
+}
+else if (G==1){ 
 G=new Decimal(5)
 }else if (G==5){ 
 G=new Decimal(10)
@@ -3377,7 +3380,7 @@ G=new Decimal(1)
 }
 function buycpc(G){
 if (money>=(G.multiply(30))){
-money = new Decimal(money.subtract(30*G))
+money = new Decimal(money.subtract(G.multiply(30)))
 cpc=rebirth.add(1).multiply(G).add(cpc)
 }
 }
