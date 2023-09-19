@@ -7,10 +7,10 @@ font-size:15px;
 }
 </style>
 <div  id='yay'></div>
-<button onclick=buycpc(G)>cpc</button>
-<button onclick=buymps(G)>mps</button>
-<button onclick=buyrebirth(G)>rebirth</button>
-<button onclick=faster()>faster cooldown</button>
+<button onclick=buycpc(G)>cpc 30 clicks</button>
+<button onclick=buymps(G)>mps 100 clicks</button>
+<button onclick=buyrebirth(G)>rebirth 1000 clicks</button>
+<button onclick=faster()>faster cooldown 1 gem</button>
 <button id="bttn" onclick='buytimes()'>buy 1x</button>
 <div id="current">yay</div>
 <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2/dist/break_infinity.js"></script>
@@ -61,7 +61,7 @@ a7:{value:time, id:'time'},
 a8:{value:new Date().getTime()}
 };
 bttn.innerText=G+"x"
-cutext.innerText=mps+" MPS \n"+cpc+" CPC"
+cutext.innerText=mps+" MPS \n"+cpc+" CPC "+rebirth+" rebirths "+gems+" gems"
 localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 //utext.innerText="\n\n\n\n\n"+atob(localStorage.savefilet)
 }
