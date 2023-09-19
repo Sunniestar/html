@@ -67,9 +67,9 @@ localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 }
 text.innerText=money
 window.onload = function calc(){
-total=mps*((new Date().getTime()-timer)*(1000/time)/1000)
-alert("gained "+Math.round(total)+" clicks")
-money=money.add(Math.round(total))
+total=new Decimal(Math.round(mps*((new Date().getTime()-timer)*(1000/time)/1000)))
+alert("gained "+total+" clicks")
+money=money.add(total)
 }
 setInterval(savestuff,10)
 function moneya(){
