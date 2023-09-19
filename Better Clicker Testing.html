@@ -3333,7 +3333,7 @@ localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 }
 text.innerText=money
 window.onload = function calc(){
-total=new Decimal(Math.round(mps*((new Date().getTime()-timer)*(1000/time)/1000)))
+total=new Decimal(Math.round(mps.multiply((new Decimal(new Date().getTime()).subtract(timer).multiply(1000).divideby(time).divideby(1000)
 alert("gained "+total+" clicks")
 money=money.add(total)
 }
