@@ -3349,12 +3349,12 @@ setTimeout(moneyps,time)
 }
 setTimeout(moneyps,time)
 function buymps(G){
-if (money>=(100*G)){
+if (money>=(G.multiply(100))){
 money = new Decimal(money.subtract(100*G))
 mps=rebirth.add(1).multiply(G).add(mps)
 }}
 function buyrebirth(G){
-if (money>=(1000*G)){
+if (money>=(G.multiply(1000))){
 rebirth=new Decimal(rebirth.add(1*G))
 money = new Decimal(0)
 mps= new Decimal(0)
@@ -3376,7 +3376,7 @@ G=new Decimal(1)
 }
 }
 function buycpc(G){
-if (money>=(30*G)){
+if (money>=(G.multiply(30))){
 money = new Decimal(money.subtract(30*G))
 cpc=rebirth.add(1).multiply(G).add(cpc)
 }
