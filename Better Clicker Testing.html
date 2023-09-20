@@ -70,7 +70,7 @@ money=money.add(total)
 }
 setInterval(savestuff,10)
 function moneya(){
-money= new Decimal(money.add(cpc))
+money= nmoney.add(cpc)
 text.innerText=money
 }
 function moneyps(){
@@ -80,13 +80,13 @@ setTimeout(moneyps,time)
 }
 setTimeout(moneyps,time)
 function buymps(G){
-if (money>=(G.multiply(100))){
+if (money>=G.multiply(100)){
 money = new Decimal(money.subtract(G.multiply(100)))
 mps=rebirth.add(1).multiply(G).add(mps)
 }}
 function buyrebirth(G){
-if (money>=(G.multiply(1000))){
-rebirth=new Decimal(rebirth.add(G.add(1)))
+if (money>=G.multiply(1000)){
+rebirth=rebirth.add(G).add(1)
 money = new Decimal(0)
 mps= new Decimal(0)
 cpc= rebirth.add(1)
@@ -110,14 +110,14 @@ G=new Decimal(1)
 }
 }
 function buycpc(G){
-if (money>=(G.multiply(30))){
-money = new Decimal(money.subtract(G.multiply(30)))
+if (money>=G.multiply(30)){
+money = money.subtract(G.multiply(30))
 cpc=rebirth.add(1).multiply(G).add(cpc)
 }
 }
 function faster(G){
 for (let i = 0; i < G; i++) {
- if (gems>=1&&time>=2){
+ if (gems>=1){
  gems = gems.subtract(1)
  time=time.subtract(1)
  }
