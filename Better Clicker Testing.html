@@ -64,7 +64,7 @@ localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 }
 text.innerText=money
 window.onload = function calc(){
-total=new Decimal(mps.multiply(new Date().getTime()-timer.multiply(1000).divide(time).divide(1000)))
+total=new Decimal(mps.multiply(new Date().getTime()-(timer.multiply(1000).divide(time).divide(1000))))
 alert("gained "+total+" clicks")
 money=money.add(total)
 }
@@ -81,21 +81,21 @@ setTimeout(moneyps,time)
 setTimeout(moneyps,time)
 function buymps(G){
 if (money>=G.multiply(100)){
-money = new Decimal(money.subtract(G.multiply(100)))
+ K=G.multiply(100)
+money = money.subtract(K)
 mps=rebirth.add(1).multiply(G).add(mps)
 }}
 function buyrebirth(G){
-if (money>=G.multiply(1000)){
-rebirth=rebirth.add(G).add(1)
+ L=G.multiply(1000)
+if (money>=L){
+rebirth=rebirth.add(G)
 money = new Decimal(0)
 mps= new Decimal(0)
 cpc= rebirth.add(1)
 gems=gems.add(G)
 }}
 function buytimes(){
-if(custom==null){
   custom=G
-}
 else if (G==1){ 
 G=new Decimal(5)
 }else if (G==5){ 
@@ -110,19 +110,21 @@ G=new Decimal(1)
 }
 }
 function buycpc(G){
-if (money>=G.multiply(30)){
-money = money.subtract(G.multiply(30))
-cpc=rebirth.add(1).multiply(G).add(cpc)
+ P=G.multiply(30)
+if (money>=P){
+money = money.subtract(P)
+ N=new Decimal(1).multiply(G).add(cpc)
+cpc=rebirth.add(N)
 }
 }
 function faster(G){
-for (let i = 0; i < G; i++) {
+//for (let i = 0; i < G; i++) {
  if (gems>=1){
- gems = gems.subtract(1)
- time=time.subtract(1)
+ gems = gems.subtract(G)
+ time=time.subtract(G)
  }
 }
-}
+//}
 function DecryptSave(){
 if (warn==0){
 console.warn('dont press again')
