@@ -1,5 +1,6 @@
-<html onload="add()" onclick='reload()'>
+<html onload="add()" onclick='reload()' id="a">
 <script>
+    const a = document.getElementById("a")
 if (localStorage.savefile==null){
 var savedata= {
 a1:{value:(0), id:'money'}
@@ -14,9 +15,11 @@ a1:{value:money, id:'money'}
 };
 localStorage.setItem('savefile',btoa(JSON.stringify(savedata)))
 }
-setInterval(savestuff,10)
-function add(){
+    
+    window.onload = function add(){
 money+=1
+savestuff()
+a.innerText=money
 }
 function reload(){
   location.reload()
