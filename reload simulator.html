@@ -20,7 +20,7 @@ localStorage.setItem('savefile',btoa(JSON.stringify(savedata)))
 money+=1
 savestuff()
 a.innerText=money+" reloads"
-setTimeout(location.reload(),3000)
+setTimeout('location.reload()',1000)
 }
 function reload(){
   location.reload()
