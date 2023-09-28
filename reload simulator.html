@@ -19,7 +19,8 @@ localStorage.setItem('savefile',btoa(JSON.stringify(savedata)))
     window.onload = function add(){
 money+=1
 savestuff()
-a.innerText=money
+a.innerText=money+" reloads"
+setTimeout(location.reload(),3000)
 }
 function reload(){
   location.reload()
