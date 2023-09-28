@@ -64,7 +64,7 @@ localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 }
 text.innerText=money
 window.onload = function calc(){
-total=new Decimal(mps.multiply(new Date().getTime()-(timer.multiply(1000).divide(time).divide(1000))))
+total=new Decimal(mps.multiply(new Date().getTime()-(timer.multiply(new Decimal(1000).divide(new Decimal(time).divide(1000))))))
 alert("gained "+total+" clicks")
 money=money.add(total)
 }
@@ -80,8 +80,8 @@ setTimeout(moneyps,time)
 }
 setTimeout(moneyps,time)
 function buymps(G){
-if (money>=G.multiply(100)){
  K=G.multiply(100)
+if (money>=K){
 money = money.subtract(K)
 mps=rebirth.add(1).multiply(G).add(mps)
 }}
