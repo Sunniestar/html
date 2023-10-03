@@ -64,7 +64,7 @@ localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 }
 text.innerText=money
 window.onload = function calc(){
-total=new Decimal(mps.multiply(new Date().getTime()-(timer.divide(new Decimal(1000).divide(time).divide(1000)))))
+total=new Decimal(mps.multiply(new Date().getTime()-((new Decimal(1000).divide(time).divide(1000)))))
 alert("gained "+total+" clicks")
 money=money.add(total)
 }
