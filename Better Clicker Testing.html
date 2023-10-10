@@ -64,7 +64,7 @@ localStorage.setItem('savefilet',btoa(JSON.stringify(savedata)))
 }
 text.innerText=money
 window.onload = function calc(){
- total=new Decimal(Math.round(mps*((new Date().getTime()-timer)*(1000/time.divideby(1000)))))
+ total=new Decimal(Math.round(mps*(new Date().getTime()-timer)*(1000/(new Decimal(time).divideby(1000)))))
 alert("gained "+total+" clicks")
 money=money.add(total)
 }
@@ -120,7 +120,7 @@ function faster(G){
  gems = gems.subtract(G)
  time=time.subtract(G)
     if (time<1){
-    time=1
+    time=new Decimal(1)
     }
  }
 }
