@@ -81,7 +81,7 @@ setTimeout(moneyps,time)
 setTimeout(moneyps,time)
 function buymps(G){
 if (money.greaterThanOrEqualTo(G.multiply(100))){
-money = money.subtract(G.toNumber()*100)
+money = money.subtract(G.multiply(100))
 mps=rebirth.add(1).multiply(G).add(mps)
 }}
 function buyrebirth(G){
